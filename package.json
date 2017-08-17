@@ -1,0 +1,29 @@
+{
+  "name": "xkcd-viewer",
+  "private": true,
+  "description": "A simple xkcd comic viewer",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Max Goodman",
+    "email": "c@chromakode.com"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --devtool inline-source-map --content-base build/",
+    "build": "webpack -p --progress",
+    "lint": "eslint ./src"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
+}
