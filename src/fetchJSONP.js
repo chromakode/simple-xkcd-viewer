@@ -8,8 +8,14 @@ export default function fetchJSONP(url) {
 
     const scriptEl = document.createElement('script')
     scriptEl.src = `${url}?callback=${callbackName}`
-    scriptEl.onload = () => { delete window[callbackName] }
-    scriptEl.onerror = () => { reject(new Error(`unable to load ${url}`)) }
+    scriptEl.onload = () => {
+      document.head.removeChild(scriptEl)
+      delete window[callbackName]
+    }
+    scriptEl.onerror = () => {
+      document.head.removeChild(scriptEl)
+      reject(new Error(`unable to load ${url}`))
+    }
     document.head.appendChild(scriptEl)
   })
 }
