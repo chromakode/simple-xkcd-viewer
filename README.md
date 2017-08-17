@@ -1,7 +1,8 @@
 # A simple xkcd comic viewer
 
 As an exercise, here's a simple xkcd viewer written in vanilla ES2017 with no
-libraries. This was my first time using async/await rather than bare promises.
+libraries. You can navigate using the arrow keys or the buttons at the bottom
+of the page.This was my first time using async/await rather than bare promises.
 I like how that turned out, though to my inexperienced eye it was harder to
 tell where my code was asynchronous, which led to some early race conditions.
 
