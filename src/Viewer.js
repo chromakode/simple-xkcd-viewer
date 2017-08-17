@@ -120,8 +120,18 @@ export default class Viewer {
       this._comicEl.style.opacity = 0
     }
 
-    const comicInfo = await this.fetchNum(num)
-    this._loadingInfo = false
+    let comicInfo
+    try {
+      comicInfo = await this.fetchNum(num)
+    } catch (err) {
+      // Firefox occasionally fails to load the JSONP data when rapidly seeking
+      // through comics -- unsure why. We need to recover gracefully when this
+      // happens.
+      console.log(`Failed to load comic info: ${err}`) // eslint-disable-line no-console
+      return
+    } finally {
+      this._loadingInfo = false
+    }
 
     const comicEl = h('div', {
       className: 'comic',
