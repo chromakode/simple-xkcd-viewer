@@ -6,7 +6,7 @@ of the page.This was my first time using async/await rather than bare promises.
 I like how that turned out, though to my inexperienced eye it was harder to
 tell where my code was asynchronous, which led to some early race conditions.
 
-Unfortnuately xkcd's API endpoints don't include permissive CORS headers, so I
+Unfortunately xkcd's API endpoints don't include permissive CORS headers, so I
 needed to use their JSONP API, which made a fetch function necessary. For
 convenience, I also wrote a little hyperscript implementation to help me
 organize my DOM creation code.
